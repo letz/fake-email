@@ -1,0 +1,7 @@
+development:
+  adapter: postgresql
+  host: localhost
+  username: letz
+  database: fake_mails
+production:
+  adapter: postgresql
