@@ -3,8 +3,21 @@ require 'sinatra'
 require 'sinatra/reloader' if development?
 require 'sinatra/activerecord'
 require 'json'
+require 'sinatra/cross_origin'
+
+configure do
+  enable :cross_origin
+end
 
 class Email < ActiveRecord::Base
+end
+
+options '*' do
+  response.headers['Allow'] = 'HEAD,GET,PUT,POST,DELETE,OPTIONS'
+
+  response.headers['Access-Control-Allow-Headers'] = 'X-Requested-With, X-HTTP-Method-Override, Content-Type, Cache-Control, Accept'
+
+  200
 end
 
 get '/' do
@@ -32,3 +45,4 @@ get '/check' do
     }.to_json
   end
 end
+
