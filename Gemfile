@@ -7,4 +7,3 @@ gem 'sinatra-contrib'
 gem 'pg'
 gem 'rake'
 gem 'sinatra-cross_origin', '~> 0.3.1'
-
